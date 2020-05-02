@@ -204,6 +204,7 @@ namespace Charmap.Shared.ViewModels
 
                 if (this.Fonty.HasSelectedAFile)
                 {
+                    ShowFontLists = false;
                     ShowSidePanel = false;
                     ShowProgressBar = true;
 
