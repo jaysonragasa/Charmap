@@ -10,9 +10,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\UTFHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IAppCenterLogger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IFonty.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ILogger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Model_Character.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)RelayCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\Logger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModel_Main.cs" />
   </ItemGroup>
   <ItemGroup>

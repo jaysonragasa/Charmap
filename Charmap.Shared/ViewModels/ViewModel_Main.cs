@@ -48,6 +48,8 @@ namespace Charmap.Shared.ViewModels
         #region properties
         public IFonty Fonty { get; set; } = null;
 
+        public ILogger Logger { get; set; } = null;
+
         public ObservableCollection<Model_Character> Characters { get; set; } = new ObservableCollection<Model_Character>();
 
         public ObservableCollection<object> FontFamilies { get; set; } = new ObservableCollection<object>();

@@ -1,5 +1,4 @@
 ﻿using Charmap.Shared.ViewModels;
-using Microsoft.Win32;
 using System.Windows;
 
 namespace Charmap.NetCore.WPF
@@ -14,6 +13,7 @@ namespace Charmap.NetCore.WPF
             InitializeComponent();
 
             ((ViewModel_Main)this.DataContext).Fonty = new Fonty();
+            ((ViewModel_Main)this.DataContext).Logger = App.Logger;
         }
     }
 }
