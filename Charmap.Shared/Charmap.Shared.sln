@@ -15,7 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Platforms", "Platforms", "{
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Charmap.Shared.projitems*{1657e093-7e13-4ab0-bed1-79f109a58462}*SharedItemsImports = 5
+		Charmap.Shared.projitems*{2d7ab94d-a710-4180-b9db-a5fa3e4d6cab}*SharedItemsImports = 4
 		Charmap.Shared.projitems*{634193b5-3c05-4c3d-a3fb-84b2444764c9}*SharedItemsImports = 13
+		Charmap.Shared.projitems*{a7727d01-acf1-4f20-a81c-2fbeb4eb3c4d}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

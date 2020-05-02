@@ -4,6 +4,19 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
+    <Authors>Jayson Ragasa</Authors>
+    <Company>JaraIO</Company>
+    <Copyright>(c) JaraIO 2020</Copyright>
+    <PackageProjectUrl>https://github.com/jaysonragasa/Charmap</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/jaysonragasa/Charmap</RepositoryUrl>
   </PropertyGroup>
+
+  <Import Project="..\Charmap.Shared\Charmap.Shared.projitems" Label="Shared" />
+
+  <ItemGroup>
+    <PackageReference Include="CommonServiceLocator" Version="2.0.5" />
+    <PackageReference Include="Jara.Xaml.ControlExtensions.NetCore" Version="1.4.3" />
+    <PackageReference Include="System.Windows.Interactivity.WPF" Version="2.0.20525" />
+  </ItemGroup>
 
 </Project>

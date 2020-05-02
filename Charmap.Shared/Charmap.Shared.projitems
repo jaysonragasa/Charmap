@@ -9,9 +9,14 @@
     <Import_RootNamespace>Charmap.Shared</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\UTFHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IFonty.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Model_Character.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RelayCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ViewModel_Main.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
   </ItemGroup>
 </Project>
