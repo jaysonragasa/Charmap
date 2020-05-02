@@ -1,2 +1,2 @@
 # Charmap
-Charmap written in WPF. Supports unicode characters that can be used with #xamarin forms
+Blog post here [https://jaysonragasa.github.io/Charmap/](https://jaysonragasa.github.io/Charmap/)
