@@ -6,9 +6,123 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:vm="using:Charmap.Shared.ViewModels"
+    xmlns:conv="using:Charmap.UWP.Converter"
+    xmlns:jio="using:Jara.Xaml.Control.Extension"
+    >
 
-    <Grid>
+    <Page.DataContext>
+        <vm:ViewModel_Main />
+    </Page.DataContext>
 
+    <Page.Resources>
+        <conv:Converter_ToVisibility x:Key="ToVisib" />
+    </Page.Resources>
+
+    <Grid x:Name="MainGrid">
+        <Grid jio:GridEx.GridDefinitions="~ ~ */* ~">
+            <!--#region header-->
+            <Grid jio:GridEx.RowColumn="0/0 2" Background="#FF000000" Height="48">
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    <Button Background="Transparent" x:Name="btnOpenFontFile" Command="{Binding Command_OpenFontFile}" BorderThickness="0">
+                        <TextBlock Text=" 🈸 Open font file " FontSize="16" Foreground="White" />
+                    </Button>
+
+                    <Button Background="Transparent" Margin="5,0,0,0" x:Name="btnShowFontList" BorderThickness="0" Command="{Binding Command_ShowFontLists}">
+                        <TextBlock Text=" ... 📂 or select from the font list " FontSize="16" Foreground="White" />
+                    </Button>
+                </StackPanel>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region font families-->
+            <Grid jio:GridEx.RowColumn="1/0 2" Background="Gray" Height="48" Visibility="{Binding ShowFontLists, Converter={StaticResource ToVisib}}">
+                <ComboBox VerticalAlignment="Center" Margin="10,0" ItemsSource="{Binding FontFamilies}" SelectedValue="{Binding SelectedFontFamily}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding ''}" VerticalAlignment="Center" />
+                                <TextBlock Text="{Binding ''}" Margin="10,0,0,0" FontFamily="{Binding ''}" VerticalAlignment="Center" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region content-->
+            <Grid jio:GridEx.RowColumn="2/0">
+                <ListBox x:Name="itemControl" ItemsSource="{Binding Characters}" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Margin" Value="0" />
+                            <Setter Property="Padding" Value="0" />
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+
+                    <!--<ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsWrapGrid Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>-->
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="80" Height="80">
+                                <Border Background="#01000000" BorderThickness="1" BorderBrush="#7F000000" CornerRadius="4" />
+                                <TextBlock Text="{Binding Character}" 
+                                           VerticalAlignment="Center" 
+                                           TextAlignment="Center" 
+                                           FontFamily="{Binding DataContext.FontFamily, ElementName=MainGrid}" 
+                                           FontSize="60" />
+
+                                <!--<i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                        <i:InvokeCommandAction Command="{Binding DataContext.Command_SelectedCharacter, ElementName=MainGrid}" CommandParameter="{Binding }"/>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>-->
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <Grid Background="#7F000000" Visibility="{Binding ShowProgressBar, Converter={StaticResource ToVisib}}">
+                    <ProgressBar IsIndeterminate="True" VerticalAlignment="Center" Height="5" />
+                </Grid>
+            </Grid>
+            <!--#endregion-->
+
+            <!--#region side panel-->
+            <Grid jio:GridEx.RowColumn="2/1" Width="240" Background="Black" Visibility="{Binding ShowSidePanel, Converter={StaticResource ToVisib}}">
+                <StackPanel Margin="10,0">
+                    <TextBlock Text="{Binding FontFamilyName}" FontSize="20" Foreground="White" />
+                    <TextBlock Text=" " FontSize="20" />
+
+                    <Grid Background="White" Width="164" Height="164" HorizontalAlignment="Left">
+                        <TextBlock Text="{Binding SelectedCharacter.Character}" 
+                                   FontFamily="{Binding FontFamily}" 
+                                   Foreground="Black" 
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center" 
+                                   FontSize="{Binding Value, ElementName=fontSize}" 
+                                   Margin="0,0,0,0"
+                                   />
+                    </Grid>
+
+                    <Slider x:Name="fontSize" Orientation="Horizontal" Width="164" HorizontalAlignment="Left" Value="24" Minimum="16" Maximum="140" />
+
+                    <TextBlock Text="" />
+                    <TextBlock Text="XAML Code" Foreground="White" />
+                    <TextBox Text="{Binding XamlCode}" IsReadOnly="True" FontSize="20" />
+
+                    <TextBlock Text="" />
+                    <TextBlock Text="Unicode constant" Foreground="White" />
+                    <TextBox Text="{Binding Unicode}" IsReadOnly="True" FontSize="20" />
+                </StackPanel>
+            </Grid>
+            <!--#endregion-->
+        </Grid>
     </Grid>
 </Page>

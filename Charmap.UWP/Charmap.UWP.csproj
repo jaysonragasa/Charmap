@@ -119,6 +119,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converter\Converter_ToVisibility.cs" />
+    <Compile Include="Fonty.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -152,6 +154,9 @@
   <ItemGroup>
     <PackageReference Include="CommonServiceLocator">
       <Version>2.0.5</Version>
+    </PackageReference>
+    <PackageReference Include="Jara.Xaml.ControlExtensions.UWP">
+      <Version>1.4.3</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.10</Version>
