@@ -1,4 +1,5 @@
-﻿using Charmap.Shared.Interfaces;
+﻿using Charmap.NetCore.WPF.Services;
+using Charmap.Shared.Interfaces;
 using Charmap.Shared.Services;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
@@ -24,16 +25,18 @@ namespace Charmap.NetCore.WPF
         {
             base.OnStartup(e);
 
+            AppCenter.Start("150b1c43-3c92-4467-b092-96ffe2de0aa3",
+                   typeof(Analytics), typeof(Crashes));
+
+            Logger.AppCenterLogger = new AppCenterLogger();
             Logger.Start();
+
 
 #if DEBUG
             Logger.Log("Running in Debug");
 #else
             Logger.Log("Running in Release");
 #endif
-
-            AppCenter.Start("150b1c43-3c92-4467-b092-96ffe2de0aa3",
-                   typeof(Analytics), typeof(Crashes));
 
             
         }
