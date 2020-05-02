@@ -225,7 +225,7 @@ namespace Charmap.Shared.ViewModels
             this.SelectedCharacter = character;
 
             this.Unicode = "\\U000" + character.IndexHex.ToUpperInvariant();
-            this.XamlCode = $"&#x" + character.IndexHex;
+            this.XamlCode = $"&#x{character.IndexHex};";
 
             ShowSidePanel = true;
         }
