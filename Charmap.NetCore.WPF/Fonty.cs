@@ -139,9 +139,10 @@ namespace Charmap.NetCore.WPF
                             toUtf16 = UTFHelper.UnicodePointToUTF16(toHex);
                             byte[] bytes = UTFHelper.GetUTF16Bytes(toUtf16);
                             c = u.GetString(bytes);
-                            toUtf16 = UTFHelper.UnicodePointToUTF16("0000");
-                            bytes = UTFHelper.GetUTF16Bytes(toUtf16);
-                            c += u.GetString(bytes);
+
+                            //toUtf16 = UTFHelper.UnicodePointToUTF16("0000");
+                            //bytes = UTFHelper.GetUTF16Bytes(toUtf16);
+                            //c += u.GetString(bytes);
 
                             chars.Add(new Model_Character()
                             {
