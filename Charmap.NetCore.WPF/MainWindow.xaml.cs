@@ -14,6 +14,14 @@ namespace Charmap.NetCore.WPF
 
             ((ViewModel_Main)this.DataContext).Fonty = new Fonty();
             ((ViewModel_Main)this.DataContext).Logger = App.Logger;
+            ((ViewModel_Main)this.DataContext).OnCopyToClipboardClicked += (s, e) =>
+            {
+                try
+                {
+                    Clipboard.SetDataObject(e);
+                }
+                catch { }
+            };
         }
     }
 }

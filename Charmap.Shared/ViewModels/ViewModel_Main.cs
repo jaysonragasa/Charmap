@@ -40,6 +40,7 @@ namespace Charmap.Shared.ViewModels
     {
         #region events
         public EventHandler OnOpenFontFileClicked;
+        public EventHandler<string> OnCopyToClipboardClicked;
         #endregion
 
         #region vars
@@ -175,6 +176,7 @@ namespace Charmap.Shared.ViewModels
         public ICommand Command_OpenFontFile { get; set; }
         public ICommand Command_SelectedCharacter { get; set; }
         public ICommand Command_ShowFontLists { get; set; }
+        public ICommand Command_CopyToClipboard { get; set; }
         #endregion
 
         #region ctors
@@ -229,6 +231,8 @@ namespace Charmap.Shared.ViewModels
             this.Unicode = "\\U000" + character.IndexHex.ToUpperInvariant();
             this.XamlCode = $"&#x{character.IndexHex};";
 
+            OnCopyToClipboardClicked?.Invoke(this, character.Character);
+
             ShowSidePanel = true;
         }
 
@@ -245,6 +249,11 @@ namespace Charmap.Shared.ViewModels
                 }
             }
         }
+
+        void Command_CopyToClipboard_Click()
+        {
+            OnCopyToClipboardClicked?.Invoke(this, this.SelectedCharacter.Character);
+        }
         #endregion
 
         #region methods
@@ -253,6 +262,7 @@ namespace Charmap.Shared.ViewModels
             if (Command_OpenFontFile == null) Command_OpenFontFile = new RelayCommand(Command_OpenFontFile_Click);
             if (Command_ShowFontLists == null) Command_ShowFontLists = new RelayCommand(Command_ShowFontLists_Click);
             if (Command_SelectedCharacter == null) Command_SelectedCharacter = new RelayCommand<Model_Character>(Command_SelectedCharacter_Click);
+            if (Command_CopyToClipboard == null) Command_CopyToClipboard = new RelayCommand(Command_CopyToClipboard_Click);
         }
 
         void DesignData()
