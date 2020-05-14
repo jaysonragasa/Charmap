@@ -9,7 +9,7 @@
   <Identity
     Name="9c4fcca5-f35c-4db5-ad95-7dad1ae56b3a"
     Publisher="CN=Jayson Ragasa"
-    Version="1.0.3.0" />
+    Version="1.0.4.0" />
 
   <Properties>
     <DisplayName>Charmap.Installer</DisplayName>

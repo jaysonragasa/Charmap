@@ -178,7 +178,8 @@ namespace Charmap.NetCore.WPF
 
             var t = await Task.Run(() =>
             {
-                List<FontFamily> fonts = Fonts.SystemFontFamilies.ToList();
+                List<FontFamily> fonts = Fonts.SystemFontFamilies.OrderBy(x => x.Source).ToList();
+
                 for (int i = 0; i < fonts.Count; i++)
                 {
                     fontlists.Add(fonts[i]);
