@@ -4,6 +4,16 @@
              xmlns:local="clr-namespace:Charmap.NetCore.WPF"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <Color x:Key="AccentColor">#FF2D2D30</Color>
+            <Color x:Key="AccentSecondColor">#FF1E1E1E</Color>
+            <Color x:Key="TextColor">#FFF1F1F1</Color>
+            <Color x:Key="CharacterBorderColor">#7FF1F1F1</Color>
+            
+            <SolidColorBrush x:Key="AccentColorBrush" Color="{StaticResource AccentColor}" />
+            <SolidColorBrush x:Key="AccentSecondColorBrush" Color="{StaticResource AccentSecondColor}" />
+            <SolidColorBrush x:Key="TextColorBrush" Color="{StaticResource TextColor}" />
+            <SolidColorBrush x:Key="CharacterBorderColorBrush" Color="{StaticResource CharacterBorderColor}" />
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -145,7 +145,7 @@ namespace Charmap.Shared.ViewModels
             }
         }
 
-        private bool _ShowSidePanel = false;
+        private bool _ShowSidePanel = true;
         public bool ShowSidePanel
         {
             get { return _ShowSidePanel; }
